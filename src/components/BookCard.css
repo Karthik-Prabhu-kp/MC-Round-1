@@ -1,0 +1,27 @@
+.BookCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.BookCard img {
+  width: 200px;
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.BookCard p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.BookCard span {
+  font-size: 12px;
+}
+
+.BookCard select {
+  margin-top: 10px;
+}

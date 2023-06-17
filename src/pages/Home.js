@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import BookCard from "../components/BookCard";
+import "./Home.css";
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -16,9 +17,17 @@ export default function Home() {
   };
 
   const getData = async () => {
-    const response = await axios.get("/data.json");
-    setBooks(response.data.books);
+    try {
+      const response = await axios.get("/data.json");
+      setBooks(response.data.books);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const renderBooksByStatus = (status) => {
     return books
@@ -32,29 +41,23 @@ export default function Home() {
       ));
   };
 
-  useEffect((e) => {
-    getData();
-  }, []);
-
   return (
     <>
-      <div>
+      <div className="Section">
         <h2>Currently Reading</h2>
-        <div>{renderBooksByStatus("Currently Reading")}</div>
+        <div className="BookContainer">
+          {renderBooksByStatus("Currently Reading")}
+        </div>
       </div>
-      <div>
-        <h2>want to Read</h2>
-        {renderBooksByStatus("want to Read")}
+      <div className="Section">
+        <h2>Want to Read</h2>
+        <div className="BookContainer">
+          {renderBooksByStatus("Want to Read")}
+        </div>
       </div>
-      <div>
+      <div className="Section">
         <h2>Read</h2>
-        {renderBooksByStatus("Read")}
-        {/* {books.map((e) => {
-          // return <div>{e.name}</div>;
-          return (
-            <BookCard key={e.id} book={e} onStatusChange={handleStatusChange} />
-          );
-        })} */}
+        <div className="BookContainer">{renderBooksByStatus("Read")}</div>
       </div>
     </>
   );

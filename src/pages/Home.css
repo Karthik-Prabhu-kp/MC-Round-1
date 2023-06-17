@@ -1,0 +1,21 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.Section {
+  width: 100%;
+}
+
+.Section h2 {
+  margin-bottom: 10px;
+}
+
+.BookContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
