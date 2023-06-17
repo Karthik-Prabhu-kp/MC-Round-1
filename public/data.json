@@ -1,0 +1,18 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "img": "https://dummyimage.com/400x500/000/fff",
+      "name": "Harry Potter",
+      "author": "J.K.Rowling",
+      "status": "Read"
+    },
+    {
+      "id": 2,
+      "img": "https://dummyimage.com/400x500/000/fff",
+      "name": "Some book",
+      "author": "someone",
+      "status": "Read"
+    }
+  ]
+}
